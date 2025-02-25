@@ -18,16 +18,16 @@ export async function POST(request) {
       },
     });
 
-    let jsonData = [];
-    if (fs.existsSync(jsonFilePath)) {
-      const fileData = fs.readFileSync(jsonFilePath);
-      jsonData = JSON.parse(fileData);
-    }
-    jsonData.push(data);
-    fs.writeFileSync(jsonFilePath, JSON.stringify(jsonData, null, 2));
+    // let jsonData = [];
+    // if (fs.existsSync(jsonFilePath)) {
+    //   const fileData = fs.readFileSync(jsonFilePath);
+    //   jsonData = JSON.parse(fileData);
+    // }
+    // jsonData.push(data);
+    // fs.writeFileSync(jsonFilePath, JSON.stringify(jsonData, null, 2));
 
-    const csvData = `${data.instruction},${data.question},${data.answer}\n`;
-    fs.appendFileSync(csvFilePath, csvData);
+    // const csvData = `${data.instruction},${data.question},${data.answer}\n`;
+    // fs.appendFileSync(csvFilePath, csvData);
 
     return new Response(
       JSON.stringify({ message: "Data saved successfully!", savedData }),
